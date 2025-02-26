@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 // DeepSeek API配置
-const API_KEY = '46b356ac-b155-4d74-b9fa-066513cd0682';
-const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
+const API_KEY = process.env.DEEPSEEK_API_KEY;
+const API_URL = process.env.DEEPSEEK_API_URL || 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
 
 // 处理聊天请求
 app.post('/api/chat', async (req, res) => {
